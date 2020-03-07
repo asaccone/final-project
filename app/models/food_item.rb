@@ -5,6 +5,7 @@
 #  id              :integer          not null, primary key
 #  expiration_date :date
 #  food_type       :string
+#  item_name       :string
 #  message1_sent   :boolean          default(FALSE)
 #  message2_sent   :boolean          default(FALSE)
 #  message3_sent   :boolean          default(FALSE)

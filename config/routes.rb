@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-
-
+  #homepage
+  get("/", { :controller => "food_items", :action => "index" })
 
   # Routes for the Food item resource:
 
