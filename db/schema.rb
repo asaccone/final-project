@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_25_154927) do
+ActiveRecord::Schema.define(version: 2020_03_07_225704) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -36,6 +36,41 @@ ActiveRecord::Schema.define(version: 2019_10_25_154927) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_admin_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
+  end
+
+  create_table "follow_requests", force: :cascade do |t|
+    t.integer "sender_id"
+    t.integer "recipient_id"
+    t.string "status"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "food_items", force: :cascade do |t|
+    t.integer "fridge_id"
+    t.integer "owner_id"
+    t.string "food_type"
+    t.date "expiration_date"
+    t.boolean "message1_sent", default: false
+    t.boolean "message2_sent", default: false
+    t.boolean "message3_sent", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "fridges", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email"
+    t.string "password_digest"
+    t.string "username"
+    t.string "phone_number"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
 end
