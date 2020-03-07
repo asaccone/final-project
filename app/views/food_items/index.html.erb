@@ -15,20 +15,14 @@
     </h2>
 
     <form action="/insert_food_item" method="post">
+      <input type="hidden" id="owner_id_box" name="query_owner_id"  value="<%= session.fetch(:user_id) %>" class="form-control">
+      
       <div class="form-group">
-        <label for="fridge_id_box">
-          Fridge
+        <label for="item_name_box">
+          Item Name
         </label>
 
-        <input type="text" id="fridge_id_box" name="query_fridge_id" class="form-control">
-      </div>
-
-      <div class="form-group">
-        <label for="owner_id_box">
-          Owner
-        </label>
-
-        <input type="text" id="owner_id_box" name="query_owner_id" class="form-control">
+        <input type="text" id="item_name_box" name="query_item_name" class="form-control">
       </div>
 
       <div class="form-group">
@@ -43,26 +37,7 @@
         <label for="expiration_date_box">
           Expiration date
         </label>
-
         <input type="date" id="expiration_date_box" name="query_expiration_date" class="form-control">
-      </div>
-
-      <div class="custom-control custom-checkbox mb-3">
-        <input type="checkbox" class="custom-control-input" id="message1_sent_box" name="query_message1_sent" value="1">
-
-        <label class="custom-control-label" for="message1_sent_box">Message1 sent</label>
-      </div>
-
-      <div class="custom-control custom-checkbox mb-3">
-        <input type="checkbox" class="custom-control-input" id="message2_sent_box" name="query_message2_sent" value="1">
-
-        <label class="custom-control-label" for="message2_sent_box">Message2 sent</label>
-      </div>
-
-      <div class="custom-control custom-checkbox mb-3">
-        <input type="checkbox" class="custom-control-input" id="message3_sent_box" name="query_message3_sent" value="1">
-
-        <label class="custom-control-label" for="message3_sent_box">Message3 sent</label>
       </div>
 
       <button class="btn btn-block btn-outline-secondary">
@@ -78,15 +53,7 @@
     <table class="table">
       <tr>
         <th>
-          ID
-        </th>
-
-        <th>
-          Fridge
-        </th>
-
-        <th>
-          Owner
+          Item name
         </th>
 
         <th>
@@ -98,68 +65,54 @@
         </th>
 
         <th>
-          Message1 sent
+          3 day warning
         </th>
 
         <th>
-          Message2 sent
+          1 day warning
         </th>
 
         <th>
-          Message3 sent
+          Throw out
         </th>
 
         <th>
-          Created at
-        </th>
-
-        <th>
-          Updated at
-        </th>
-
-        <th>
+          Delete
         </th>
       </tr>
 
-      <% @food_items.each do |food_item| %>
+      <% @current_user.food_items.each do |item| %>
       <tr>
         <td>
-          <%= food_item.id %>
+          <%= item.id %>
         </td>
 
         <td>
-          <%= food_item.fridge_id %>
+          <%= item.fridge_id %>
         </td>
 
         <td>
-          <%= food_item.owner_id %>
+          <%= item.owner_id %>
         </td>
 
         <td>
-          <%= food_item.food_type %>
+          <%= item.food_type %>
         </td>
 
         <td>
-          <%= food_item.expiration_date %>
+          <%= item.expiration_date %>
         </td>
 
         <td>
-          <%= food_item.message1_sent %>
+          <%= item.message1_sent %>
         </td>
 
         <td>
-          <%= food_item.message2_sent %>
+          <%= item.message2_sent %>
         </td>
 
         <td>
-          <%= food_item.message3_sent %>
-        </td>
-
-        <td>
-          <%= time_ago_in_words(food_item.created_at) %> ago
-        </td>
-        <td>
-          <%= time_ago_in_words(food_item.updated_at) %> ago
+          <%= item.message3_sent %>
         </td>
 
         <td>
