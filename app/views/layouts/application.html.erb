@@ -13,27 +13,37 @@
 
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_pack_tag 'application' %>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">  
+
+
+    <style>
+      h1, h2 { padding-left: 70px }
+      form, table { padding: 70px }
+    </style>
+
   </head>
 
   <body>
-    <nav>
-      <ul>
+    <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+      <ul class="navbar-nav mr-auto">
         <% if session.fetch(:user_id) == nil %>
-          <li>
-            <a href="/user_sign_in">Sign In</a>
+          <li class="nav-item">
+            <a class="nav-link" href="/user_sign_in">Sign In</a>
           </li>
-          <li>
-            <a href="/user_sign_up">Sign Up</a>
+          <li class="nav-item">
+            <a class="nav-link" href="/user_sign_up">Sign Up</a>
           </li>
         <% else %>
-          <li>
-            <a href="/">My Fridge</a>
+          <li class="nav-item">
+            <a class="nav-link" href="/">My Fridge</a>
           </li>
-          <li>
-            <a href="/edit_user_profile">Edit Profile</a>
+          <li class="nav-item">
+            <a class="nav-link" href="/edit_user_profile">Edit Profile</a>
           </li>
-          <li>
-            <a href="/user_sign_out">Sign Out</a>
+          <li class="nav-item">
+            <a class="nav-link" href="/user_sign_out">Sign Out</a>
           </li>
         <% end %>
         </ul>
