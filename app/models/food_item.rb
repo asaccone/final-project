@@ -3,6 +3,7 @@
 # Table name: food_items
 #
 #  id              :integer          not null, primary key
+#  description     :text
 #  expiration_date :date
 #  food_type       :string
 #  item_name       :string

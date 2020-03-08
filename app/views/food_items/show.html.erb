@@ -1,7 +1,7 @@
 <div class="row mb-3">
   <div class="col-md-8 offset-md-2">
     <h1>
-      Food item #<%= @food_item.id %> details
+      <%= @food_item.item_name %> details
     </h1>
 
     <div class="row mb-3">
@@ -20,24 +20,10 @@
 
     <dl>
       <dt>
-        Fridge
-      </dt>
-      <dd>
-        <%= @food_item.fridge_id %>
-      </dd>
-
-      <dt>
-        Owner
-      </dt>
-      <dd>
-        <%= @food_item.owner_id %>
-      </dd>
-
-      <dt>
         Food type
       </dt>
       <dd>
-        <%= @food_item.food_type %>
+        <%= @food_item.food_type.capitalize %>
       </dd>
 
       <dt>
@@ -48,38 +34,24 @@
       </dd>
 
       <dt>
-        Message1 sent
+        3-day warning
       </dt>
       <dd>
         <%= @food_item.message1_sent %>
       </dd>
 
       <dt>
-        Message2 sent
+        1-day warning
       </dt>
       <dd>
         <%= @food_item.message2_sent %>
       </dd>
 
       <dt>
-        Message3 sent
+        Throw out?
       </dt>
       <dd>
         <%= @food_item.message3_sent %>
-      </dd>
-
-      <dt>
-        Created at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@food_item.created_at) %> ago
-      </dd>
-
-      <dt>
-        Updated at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@food_item.updated_at) %> ago
       </dd>
     </dl>
   </div>
@@ -95,22 +67,6 @@
     </h2>
 
     <form action="/modify_food_item/<%= @food_item.id %>"  method="post" >
-      <div class="form-group">
-        <label for="fridge_id_box">
-          Fridge
-        </label>
-
-        <input type="text" id="fridge_id_box" name="query_fridge_id" class="form-control" value="<%= @food_item.fridge_id %>">
-      </div>
-
-      <div class="form-group">
-        <label for="owner_id_box">
-          Owner
-        </label>
-
-        <input type="text" id="owner_id_box" name="query_owner_id" class="form-control" value="<%= @food_item.owner_id %>">
-      </div>
-
       <div class="form-group">
         <label for="food_type_box">
           Food type

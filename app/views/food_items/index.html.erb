@@ -85,6 +85,9 @@
 
         <th>
         </th>
+
+        <th>
+        </th>
       </tr>
 
       <% @current_user.food_items.each do |item| %>
@@ -111,6 +114,12 @@
 
         <td>
           <%= item.message3_sent %>
+        </td>
+
+        <td>
+          <a href="/food_items/<%= item.id %>">
+            Edit
+          </a>
         </td>
 
         <td>
