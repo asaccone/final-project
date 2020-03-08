@@ -17,6 +17,9 @@
 #
 
 class FoodItem < ApplicationRecord
+  validates :expiration_date, :presence => true
+  validates :item_name, :presence => true
+  
   belongs_to :owner, :class_name => "User"
   belongs_to :photo, :class_name => "Fridge", :foreign_key => "fridge_id"   
 end

@@ -41,6 +41,14 @@
       </div>
 
       <div class="form-group">
+         <label for="food_description_box">
+          Food description
+        </label>
+
+        <textarea name="query_description" id="food_description_box" class="form-control"></textarea>
+      </div>
+
+      <div class="form-group">
         <label for="expiration_date_box">
           Expiration date
         </label>
@@ -72,15 +80,15 @@
         </th>
 
         <th>
-          3 day warning
+          3-day warning
         </th>
 
         <th>
-          1 day warning
+          1-day warning
         </th>
 
         <th>
-          Throw out
+          Throw out?
         </th>
 
         <th>
@@ -101,7 +109,7 @@
         </td>
 
         <td>
-          <%= item.expiration_date %>
+          <%= item.expiration_date.strftime("%A, %B %e, %Y") %>
         </td>
 
         <td>

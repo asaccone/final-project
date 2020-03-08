@@ -17,13 +17,14 @@ class FoodItemsController < ApplicationController
     @food_item.owner_id = params.fetch("query_owner_id")
     @food_item.item_name = params.fetch("query_item_name")
     @food_item.food_type = params.fetch("query_food_type")
+    @food_item.description = params.fetch("query_description")
     @food_item.expiration_date = params.fetch("query_expiration_date")
 
     if @food_item.valid?
       @food_item.save
       redirect_to("/", { :notice => "Food item created successfully." })
     else
-      redirect_to("/", { :notice => "Food item failed to create successfully." })
+      redirect_to("/", { :alert => "Food item failed to create successfully." })
     end
   end
 
