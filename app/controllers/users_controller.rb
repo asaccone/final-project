@@ -20,7 +20,7 @@ class UsersController < ApplicationController
    
       redirect_to("/", { :notice => "User account created successfully."})
     else
-      redirect_to("/user_sign_up", { :alert => "User account failed to create successfully."})
+      redirect_to("/user_sign_up", { :alert => "User account failed to create successfully. #{@user.errors.full_messages.to_sentence}"})
     end
   end
     

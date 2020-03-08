@@ -86,10 +86,10 @@
             <option value="dairy">Dairy</option>
           <% end %>
 
-          <% if @food_item.food_type == "meat" %>
-            <option value="meat" selected>Meat</option>
+          <% if @food_item.food_type == "protein" %>
+            <option value="protein" selected>Protein</option>
           <% else %>
-            <option value="meat">Meat</option>
+            <option value="protein">Protein</option>
           <% end %>
           
           <% if @food_item.food_type == "produce" %>

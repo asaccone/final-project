@@ -24,7 +24,7 @@ class FoodItemsController < ApplicationController
       @food_item.save
       redirect_to("/", { :notice => "Food item created successfully." })
     else
-      redirect_to("/", { :alert => "Food item failed to create successfully." })
+      redirect_to("/", { :alert => "Food item failed to create successfully. #{@food_item.errors.full_messages.to_sentence}." })
     end
   end
 
