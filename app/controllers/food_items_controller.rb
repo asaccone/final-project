@@ -31,10 +31,9 @@ class FoodItemsController < ApplicationController
     the_id = params.fetch("path_id")
     @food_item = FoodItem.where({ :id => the_id }).at(0)
 
-    @food_item.fridge_id = params.fetch("query_fridge_id")
-    @food_item.owner_id = params.fetch("query_owner_id")
     @food_item.food_type = params.fetch("query_food_type")
     @food_item.expiration_date = params.fetch("query_expiration_date")
+    @food_item.description = params.fetch("query_description")
     @food_item.message1_sent = params.fetch("query_message1_sent", false)
     @food_item.message2_sent = params.fetch("query_message2_sent", false)
     @food_item.message3_sent = params.fetch("query_message3_sent", false)
