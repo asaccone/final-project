@@ -1,66 +1,69 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Final Project</title>
-    <%= csrf_meta_tags %>
+<head>
+  <title>
+    FinalProject
+  </title>
 
-    <!-- Expand the number of characters we can use in the document beyond basic ASCII 🎉 -->
-    <meta charset="utf-8">
+  <!-- Expand the number of characters we can use in the document beyond basic ASCII 🎉 -->
+  <meta charset="utf-8">
 
-    <!-- Make it responsive to small screens -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <%= csp_meta_tag %>
+  <!-- Make it responsive to small screens. Include only if you're using responsive CSS. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <%= stylesheet_link_tag 'application', media: 'all' %>
-    <%= javascript_pack_tag 'application' %>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">  
+  <!-- Helper methods that create <link>s and <script>s for all of the stylesheets and javascript files in the non-`/public/` assets folders. -->
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_pack_tag  'application' %>
 
+  <!-- Rendering a partial that has all the <link>s and <script>s for assets we are pulling from content-delivery networks. -->
+  <%= render "shared/cdn_assets" %>
 
-    <style>
-      h1, h2 { padding-left: 70px }
-      form, table { padding: 70px }
-    </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <style>
+    body { padding-bottom: 70px }
+  </style>
+</head>
 
-  </head>
+<body>
 
-  <body>
-    <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Fresh</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor02">
       <ul class="navbar-nav mr-auto">
-        <% if session.fetch(:user_id) == nil %>
-          <li class="nav-item">
-            <a class="nav-link" href="/user_sign_in">Sign In</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/user_sign_up">Sign Up</a>
-          </li>
-        <% else %>
-          <li class="nav-item">
-            <a class="nav-link" href="/">My Fridge</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/edit_user_profile">Edit Profile</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/user_sign_out">Sign Out</a>
-          </li>
-        <% end %>
-        </ul>
-      </nav>
+      <% if session.fetch(:user_id) == nil %>
+        <li class="nav-item">
+          <a class="nav-link" href="/user_sign_in">Sign In</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/user_sign_up">Sign Up</a>
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <a class="nav-link" href="/">My Fridge</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/edit_user_profile">Edit Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/user_sign_out">Sign Out</a>
+        </li>
+      <% end %>
+      </ul>
+    </div>
+  </nav>
 
-    <% if notice.present? %>
-      <div style="border: thin green solid; color: green">
-        <%= notice %>
-      </div>
-    <% end %>
-
-    <% if alert.present? %>
-        <div style="border: thin red solid; color: red">
-          <%= alert %>
-        </div>
-    <% end %>
+  <div class="container">
+    <%= render "shared/flashes" %>
 
     <%= yield %>
-  </body>
+  </div>
+</body>
 </html>
