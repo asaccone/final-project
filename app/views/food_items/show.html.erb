@@ -37,28 +37,40 @@
         Expiration date
       </dt>
       <dd>
-        <%= @food_item.expiration_date.strftime("%A, %B %e, %Y") %>
+        <%= @food_item.expiration_date.strftime("%A, %D") %>
       </dd>
 
       <dt>
         3-day warning
       </dt>
       <dd>
-        <%= @food_item.message1_sent %>
+        <% if @food_item.message1_sent == false %>
+          <span class="badge badge-info">Not sent</span>
+        <% else %>
+          <span class="badge badge-danger">Sent</span>
+        <% end %>
       </dd>
 
       <dt>
         1-day warning
       </dt>
       <dd>
-        <%= @food_item.message2_sent %>
+        <% if @food_item.message2_sent == false %>
+          <span class="badge badge-info">Not sent</span>
+        <% else %>
+          <span class="badge badge-danger">Sent</span>
+        <% end %>
       </dd>
 
       <dt>
         Throw out?
       </dt>
       <dd>
-        <%= @food_item.message3_sent %>
+        <% if @food_item.message3_sent == false %>
+          <span class="badge badge-success">Not yet!</span>
+        <% else %>
+          <span class="badge badge-danger">YES</span>
+        <% end %>
       </dd>
     </dl>
   </div>
@@ -129,24 +141,21 @@
       </div>
 
       <div class="custom-control custom-checkbox mb-3">
+        <label class="custom-control-label"
+          for="message1_sent_box">No 3-day warning</label>
         <input type="checkbox" class="custom-control-input" id="message1_sent_box" name="query_message1_sent" value="1" <%= "checked" if @food_item.message1_sent %>>
-
-        <label class="custom-control-label"
-          for="message1_sent_box">Message1 sent</label>
       </div>
 
       <div class="custom-control custom-checkbox mb-3">
+        <label class="custom-control-label"
+          for="message2_sent_box">No 1-day warning</label>
         <input type="checkbox" class="custom-control-input" id="message2_sent_box" name="query_message2_sent" value="1" <%= "checked" if @food_item.message2_sent %>>
-
-        <label class="custom-control-label"
-          for="message2_sent_box">Message2 sent</label>
       </div>
 
       <div class="custom-control custom-checkbox mb-3">
-        <input type="checkbox" class="custom-control-input" id="message3_sent_box" name="query_message3_sent" value="1" <%= "checked" if @food_item.message3_sent %>>
-
         <label class="custom-control-label"
-          for="message3_sent_box">Message3 sent</label>
+          for="message3_sent_box">No throw-out message</label>
+        <input type="checkbox" class="custom-control-input" id="message3_sent_box" name="query_message3_sent" value="1" <%= "checked" if @food_item.message3_sent %>>
       </div>
 
       <button class="btn btn-block btn-outline-secondary">

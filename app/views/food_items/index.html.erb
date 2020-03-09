@@ -1,7 +1,7 @@
 <div class="row mb-3">
   <div class="col-md-12">
     <h1>
-      My Fridge
+      <%= @current_user.username.capitalize + "'s Fridge" %>
     </h1>
   </div>
 </div>
@@ -109,30 +109,42 @@
         </td>
 
         <td>
-          <%= item.expiration_date.strftime("%A, %B %e, %Y") %>
+          <%= item.expiration_date.strftime("%A, %D") %>
         </td>
 
         <td>
-          <%= item.message1_sent %>
+          <% if item.message1_sent == false %>
+          <span class="badge badge-info">Not sent</span>
+          <% else %>
+          <span class="badge badge-danger">Sent</span>
+          <% end %>
         </td>
 
         <td>
-          <%= item.message2_sent %>
+          <% if item.message2_sent == false %>
+          <span class="badge badge-info">Not sent</span>
+          <% else %>
+          <span class="badge badge-danger">Sent</span>
+          <% end %>
         </td>
 
         <td>
-          <%= item.message3_sent %>
+          <% if item.message3_sent == false %>
+          <span class="badge badge-success">Not yet!</span>
+          <% else %>
+          <span class="badge badge-danger">YES</span>
+          <% end %>
         </td>
 
         <td>
           <a href="/food_items/<%= item.id %>">
-            Edit
+            <i class="fas fa-edit"></i>
           </a>
         </td>
 
         <td>
           <a href="/delete_food_item/<%= item.id %>">
-            Delete
+            <i class="fas fa-trash-alt"></i>
           </a>
         </td>
       </tr>
