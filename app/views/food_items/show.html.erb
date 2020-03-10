@@ -140,24 +140,6 @@
         <input type="date" id="expiration_date_box" name="query_expiration_date" class="form-control" value="<%= @food_item.expiration_date %>">
       </div>
 
-      <div class="custom-control custom-checkbox mb-3">
-        <label class="custom-control-label"
-          for="message1_sent_box">No 3-day warning</label>
-        <input type="checkbox" class="custom-control-input" id="message1_sent_box" name="query_message1_sent" value="1" <%= "checked" if @food_item.message1_sent %>>
-      </div>
-
-      <div class="custom-control custom-checkbox mb-3">
-        <label class="custom-control-label"
-          for="message2_sent_box">No 1-day warning</label>
-        <input type="checkbox" class="custom-control-input" id="message2_sent_box" name="query_message2_sent" value="1" <%= "checked" if @food_item.message2_sent %>>
-      </div>
-
-      <div class="custom-control custom-checkbox mb-3">
-        <label class="custom-control-label"
-          for="message3_sent_box">No throw-out message</label>
-        <input type="checkbox" class="custom-control-input" id="message3_sent_box" name="query_message3_sent" value="1" <%= "checked" if @food_item.message3_sent %>>
-      </div>
-
       <button class="btn btn-block btn-outline-secondary">
         Update food item
       </button>
