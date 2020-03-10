@@ -80,6 +80,10 @@
         </th>
 
         <th>
+          Days left
+        </th>
+
+        <th>
           3-day warning
         </th>
 
@@ -110,6 +114,10 @@
 
         <td>
           <%= item.expiration_date.strftime("%A, %D") %>
+        </td>
+
+        <td>
+          <%= (item.expiration_date - Date.today).to_i %>
         </td>
 
         <td>
