@@ -94,7 +94,7 @@
         </th>
       </tr>
 
-      <% @current_user.food_items.each do |item| %>
+      <% @current_user.food_items.order({ :expiration_date => :asc }).each do |item| %>
       <tr>
         <td>
           <%= item.item_name %>

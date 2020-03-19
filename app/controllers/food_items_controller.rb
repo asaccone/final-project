@@ -1,6 +1,6 @@
 class FoodItemsController < ApplicationController
   def index
-    @food_items = FoodItem.all.order({ :created_at => :desc })
+    @food_items = FoodItem.all.order({ :expiration_date => :asc })
 
     render({ :template => "food_items/index.html.erb" })
   end
