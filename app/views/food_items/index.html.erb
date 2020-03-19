@@ -84,14 +84,6 @@
         </th>
 
         <th>
-          3-day warning
-        </th>
-
-        <th>
-          1-day warning
-        </th>
-
-        <th>
           Throw out?
         </th>
 
@@ -121,23 +113,7 @@
         </td>
 
         <td>
-          <% if item.message1_sent == false %>
-          <span class="badge badge-info">Not sent</span>
-          <% else %>
-          <span class="badge badge-danger">Sent</span>
-          <% end %>
-        </td>
-
-        <td>
-          <% if item.message2_sent == false %>
-          <span class="badge badge-info">Not sent</span>
-          <% else %>
-          <span class="badge badge-danger">Sent</span>
-          <% end %>
-        </td>
-
-        <td>
-          <% if item.message3_sent == false %>
+          <% if (item.expiration_date - Date.today).to_i > 0 %>
           <span class="badge badge-success">Not yet!</span>
           <% else %>
           <span class="badge badge-danger">YES</span>
