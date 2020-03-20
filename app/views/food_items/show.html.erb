@@ -44,7 +44,7 @@
         3-day warning
       </dt>
       <dd>
-        <% if @food_item.message1_sent == false %>
+        <% if (@food_item.expiration_date - Date.today).to_i > 3 %>
           <span class="badge badge-info">Not sent</span>
         <% else %>
           <span class="badge badge-danger">Sent</span>
@@ -55,7 +55,7 @@
         1-day warning
       </dt>
       <dd>
-        <% if @food_item.message2_sent == false %>
+        <% if (@food_item.expiration_date - Date.today).to_i > 1 %>
           <span class="badge badge-info">Not sent</span>
         <% else %>
           <span class="badge badge-danger">Sent</span>
