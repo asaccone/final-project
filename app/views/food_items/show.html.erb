@@ -73,7 +73,7 @@
         Throw out?
       </dt>
       <dd>
-        <% if @food_item.message3_sent == false %>
+        <% if (@food_item.expiration_date - Date.today).to_i > 0 %>
           <span class="badge badge-success">Not yet!</span>
         <% else %>
           <span class="badge badge-danger">YES</span>
