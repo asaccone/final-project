@@ -1,7 +1,7 @@
 <div class="row mb-3">
   <div class="col-md-12">
     <h1>
-      <%= @current_user.username.capitalize + "'s Fridge" %>
+      <%= @current_user.username.capitalize + "'s Fridge" %> <i class="fas fa-utensils"></i>
     </h1>
   </div>
 </div>
@@ -11,7 +11,7 @@
 <div class="row mb-3">
   <div class="col-md-8 offset-md-2">
     <h2>
-      Add a new food item
+      Add a new food item 
     </h2>
 
     <form action="/insert_food_item" method="post">

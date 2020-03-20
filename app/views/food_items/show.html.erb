@@ -41,6 +41,13 @@
       </dd>
 
       <dt>
+          Days left
+      </dt>
+      <dd>
+          <%= (@food_item.expiration_date - Date.today).to_i %>
+      </dd>
+
+      <dt>
         3-day warning
       </dt>
       <dd>
