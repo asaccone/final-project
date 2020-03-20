@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     @user.password = params.fetch("query_password")
     @user.password_confirmation = params.fetch("query_password_confirmation")
     @user.username = params.fetch("query_username")
-    @user.phone_number = params.fetch("query_phone_number")
+    @user.phone_number = params.fetch("query_phone_number").gsub(/[^0-9]/, "")
 
     save_status = @user.save
 
